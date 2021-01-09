@@ -1,3 +1,13 @@
+@include('layouts.header')
+@include('layouts.navbar')
+@include('layouts.mainsidebar')
+
+{{-- @extends('layouts.master')
+@section('content')
+
+@section('title','customer list')
+@section('header') --}}
+
 <table class="table table-bordered">
 <tr>
     <th>ID</th>
@@ -20,3 +30,7 @@
 </tr>
 @endforeach
 </table>
+
+{{-- @endsection --}}
+@include('layouts.footer')
+@include('layouts.scripts')

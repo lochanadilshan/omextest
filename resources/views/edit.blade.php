@@ -1,10 +1,8 @@
+@extends('layouts.master')
+@section('content')
 
-@include('partials.header')
-
-
-<!DOCTYPE html>
-<head>
-    <title> </title>
+@section('title','customer edit')
+@section('header')
 
     {{-- <script>
         $(function(){
@@ -136,7 +134,7 @@
     </html>
     <br>
 
+    @endsection
     
-    @include('partials.footer')
 
     

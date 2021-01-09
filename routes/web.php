@@ -12,20 +12,34 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+
+// welcome page
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Routes
 route::resource('customer','cutomercontroller');
+Route::get('datatable', 'cutomercontroller@indexpagetable')->name('datatable.indexpagetable');
 
-route::resource('datatable','cutomercontroller');
-Route::get('customer1', 'cutomercontroller@indexpagetable')->name('datatable.indexpagetable');
+route::resource('items','itemcontroller');
 
+route::resource('chart','chartcontroller');
+
+
+
+
+
+
+// route::resource('test','testcontroller');
+// route::resource('datatable','cutomercontroller');
 // Route::delete('users/{id}', 'cutomercontroller@destroy')->name('users.destroy');
 //  route::resource('pictureStore','PictureStoreController');
-
 //  route::resource('theme','ThemeController');
-
 //  route::resource('ajax','cutomerController');
 
  

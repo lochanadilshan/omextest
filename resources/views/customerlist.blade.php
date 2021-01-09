@@ -1,9 +1,22 @@
-@extends('customer')
-
-
+@extends('layouts.master')
 @section('content')
 
 @section('title','customer list')
+@section('header')
+
+   <div class="container">
+       <div class="row">
+           <div class="card">
+               <div class="card-header border-1">
+    
+                <h3 class="card-title">Online Store Visitors</h3>
+                
+              </div>
+            
+            <div class="card-body">
+              <div class="d-flex">
+    
+                @endsection
 
       <table class="shadow table table-bordered table-hover datatable " id="t1" role="grid">
         <thead class="thead-dark">
@@ -76,7 +89,11 @@ testtable
       </script>
     </div>
   </div>
-&nbsp
+           </div>
+          </div>
+          </div>
+          
+
 
 
 @endsection

@@ -12,6 +12,7 @@ use DataTables;
 
 class cutomercontroller extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -158,7 +159,7 @@ public function indexpagetable() {
     
     ->addColumn('action', function ($ajaxdata) {
 
-        $buttons ='<a class="far fa-eye btn btn-sm btn-primary btn-rounded m-b-1 m-l-5 shadow" href="'.url('/customer/'.$ajaxdata->id.'/').'"> View</a> 
+        $buttons ='<a class="far fa-eye btn btn-sm btn-primary btn-rounded m-b-1 m-l-5 shadow" href="'.url('/customer/'.$ajaxdata->id.'view').'"> View</a> 
         <a class="shadow far fa-edit btn btn-sm btn-success btn-rounded m-b-1 m-l-5" href="'.url('/customer/'.$ajaxdata->id.'/edit').'"> Edit</a>
         <input type="hidden" id="hiddenID" value="'.$ajaxdata->id.'">
         <button data-token="'. csrf_token() .'" class=" shadow far fa-trash-alt btn btn-sm btn-danger btn-rounded m-b-1 m-l-5" id="delete"> Delete</button>';

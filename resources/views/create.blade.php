@@ -1,11 +1,9 @@
 
-@include('partials.header')
+@extends('layouts.master')
+@section('content')
 
-
-<!DOCTYPE html>
-<head>
-    <title> </title>
-
+@section('title','customer list')
+@section('header')
     {{-- <script>
         $(function(){
             $("form").submit(function(e){
@@ -137,6 +135,6 @@
     <br>
 
     
-    @include('partials.footer')
+    @endsection
 
     
