@@ -20,7 +20,7 @@
     </script> --}}
     {{-- <button onclick="setTimeout(myFunction, 3000)">Try it</button> --}}
 
-
+   
 
 </head>
     <body>
@@ -59,41 +59,58 @@
                             <br>
              <div class="form-row">
                     <div class="col-6">
-                        <label for="exampleInputPassword1">First Name</label>
+                        <label for="fname">First Name</label>
                         
-                        <input type="text" class="form-control shadow" id="exampleInputPassword1" placeholder="ex : Arno" name="fname" value="{{ old('fname') }}">
+                        <input type="text" class="form-control shadow" id="fname" placeholder="Arno" name="fname" value="{{ old('fname') }}">
                     </div>
                     
 
                     <div class="col-6">
-                        <label for="exampleInputPassword1">Last Name</label>
-                        <input type="text" class="form-control shadow" id="exampleInputPassword1" placeholder="ex : Dorian" name="lname" value="{{ old('lname') }}">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control shadow" id="lname" placeholder="Dorian" name="lname" value="{{ old('lname') }}">
                     </div>
             </div>
             <br>
                 <div class="form-row">
                     <div class="col-12">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control shadow" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="abc@email.com" name="email" value="{{ old('email') }}">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control shadow" id="email" aria-describedby="emailHelp" placeholder="abc@email.com" name="email" value="{{ old('email') }}">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
             </div>
          <br>
 
+         <div class="form-row">
+         <div class="col-6">
+            <label for="phoneno">Phone No</label>
+            <input type="text"  class="form-control shadow" id="phoneno" placeholder="077 407 3997 "  value="{{ old('phoneno') }}" name="phoneno">    
+             </div>
+        </div>
+    <br>
+
             <div class="form-row">
                 <div class="col-6">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control shadow" id="exampleInputPassword1" placeholder="********" name="password">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control shadow" id="password" placeholder="********" name="password">
                     <small id="emailHelp" class="form-text text-muted">Password should be longer than 8 characters.</small>
             </div>
 
             <div class="col-6">
-                <label for="exampleInputPassword1">Re-type Password</label>
-                <input type="password" class="form-control shadow" id="exampleInputPassword1" placeholder="********" name="retypepassword">    
+                <label for="retypepassword">Re-type Password</label>
+                <input type="password" class="form-control shadow" id="retypepassword" placeholder="********" name="retypepassword">    
                  </div>
             </div>
             <br>
 
+            <label for="pNotifications">Would you like to recieve notifications about new item updates</label>
+            <br>
+            
+            <label for="">Yes</label>
+            <input type="radio" name="pNotifications" value="yes" id=""><br>
+            
+            <label for="">No</label>
+            <input type="radio" name="pNotifications" value="no" id=""><br>
+            
             
 
                         <div class="form-group">
@@ -137,4 +154,4 @@
     
     @endsection
 
-    
+   

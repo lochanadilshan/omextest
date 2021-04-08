@@ -81,6 +81,14 @@
             </div>
          <br>
 
+         <div class="form-row">
+            <div class="col-6">
+               <label for="exampleInputPassword1">Phone No</label>
+               <input type="text"  class="form-control shadow" id="exampleInputPassword1" placeholder="077 407 3997 "  value="{{ $customer->phoneno }}" name="phoneno">    
+                </div>
+           </div>
+       <br>
+
             <div class="form-row">
                 <div class="col-6">
                     <label for="exampleInputPassword1">Password</label>
@@ -95,6 +103,13 @@
             </div>
             <br>
 
+            
+            <div class="form-group">
+                <label class="radio-inline">
+                <input type="radio" name="pNotifications" id="" value="yes" {{ ($customer->pNotifications=="yes")? "checked" : "" }}>Female</label>
+                <label class="radio-inline">
+                <input type="radio" name="pNotifications" id="" value="no" {{ ($customer->pNotifications=="no")? "checked" : "" }}>Other</label>
+               </div>
             
 
                         <div class="form-group">

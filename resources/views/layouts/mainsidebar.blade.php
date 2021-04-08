@@ -1,7 +1,7 @@
 
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed sidebar-collapse">  
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 ">
   <!-- Brand Logo -->
   <a href="http://127.0.0.1:8000/" class="brand-link">
       <img src="{{asset('assets/img/desktop.png')}}" alt="AdminLTE Logo" class="brand-image img-full elevation-3" style="opacity: .8">
@@ -16,7 +16,9 @@
           <img src="{{asset('assets/img/me.jpg')}}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Lochana Dilshan</a>
+        <a href="#" class="d-block">
+          {{-- {{ ucfirst(Auth()->user()->name) }} --}}
+        </a>
       </div>
     </div>
 
@@ -25,74 +27,93 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
+
+             <li class="nav-item has-treeview">
+              <a href="http://127.0.0.1:8000/" class="nav-link ">
+                <i class="nav-icon fas fa-store-alt"></i>
+                <p>
+                  View Online Store           
+                </p>
+              </a>
+            </li>
+
         <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
+          <a href="http://127.0.0.1:8000/" class="nav-link ">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              Dashboard
-              
+              Dashboard           
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="http://127.0.0.1:8000/customer" class="nav-link">
-            <i class="nav-icon fas fa-th"></i>
+
+        <li class="nav-item has-treeview menu-close">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
             <p>
               Manage Customers
-            </p>
-          </a>
-        </li>
-        <li class="nav-item has-treeview menu-close">
-          <a href="#" class="nav-link active">
-            <i class="nav-icon fas fa-copy"></i>
-            <p>
-              Manage Categories
               <i class="fas fa-angle-left right"></i>
               
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="../layout/top-nav.html" class="nav-link">
+              <a href="http://127.0.0.1:8000/customer" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>keybord</p>
+                <p>Customer List</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/customer" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Edit Customer Details</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/customer/create" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add New Customer</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item has-treeview menu-close">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-sitemap"></i>
+            <p>
+              Manage Items
+              <i class="fas fa-angle-left right"></i>
+              
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/items/create" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add New Item</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="http://127.0.0.1:8000/items" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Item List</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="../layout/boxed.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>mouse</p>
+                <p>Edit Items</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="../layout/fixed-sidebar.html" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>psu</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../layout/fixed-topnav.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>cpu</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../layout/fixed-footer.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>ram</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../layout/collapsed-sidebar.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>vga</p>
-              </a>
-            </li>
+            
           </ul>
         </li>
+
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
+            <i class="nav-icon fas fa-truck"></i>
             <p>
               Manage Orders
               
@@ -124,7 +145,7 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-tree"></i>
             <p>
-              Manage Customers
+              Manage Sales
               <i class="fas fa-angle-left right"></i>
               
             </p>
@@ -211,7 +232,7 @@
         </li>
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
+            <i class="nav-icon fas fa-user"></i>
             <p>
               Manage Profile
               <i class="fas fa-angle-left right"></i>
@@ -345,85 +366,32 @@
         </li>
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
-            <i class="nav-icon far fa-plus-square"></i>
+            <i class="nav-icon  fa fa-power-off"></i>
             <p>
-              Extras
+              Switch User
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="../examples/login.html" class="nav-link">
+              <a href="http://127.0.0.1:8000/login" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Login</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="../examples/register.html" class="nav-link">
+              <a href="http://127.0.0.1:8000/registration" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Register</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="..examples/forgot-password.html" class="nav-link">
+              <a href="{{url('logout')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Forgot Password</p>
+                <p>Logout</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="..examples/recover-password.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Recover Password</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../examples/lockscreen.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Lockscreen</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../examples/legacy-user-menu.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Legacy User Menu</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../examples/language-menu.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Language Menu</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../examples/404.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Error 404</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../examples/500.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Error 500</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../examples/pace.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Pace</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../examples/blank.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Blank Page</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="../../starter.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Starter Page</p>
-              </a>
-            </li>
+            
           </ul>
         </li>
        

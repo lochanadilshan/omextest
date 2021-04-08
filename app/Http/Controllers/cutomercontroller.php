@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\customer;
+
 use Illuminate\Http\Request;
 // validation
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\UploadedFiles;
 use Illuminate\Support\Facades\Storage;
 use DataTables;
-
+use DB;
+use PDF;
+use Excel;
+use App\Exports\CustomerExport;
+use App\Imports\CustomerImport;
 
 class cutomercontroller extends Controller
 {
@@ -55,6 +60,8 @@ class cutomercontroller extends Controller
             'fname' => 'required',
             'lname' => 'required',
             'email' => 'required',
+            'phoneno' => 'required',
+            
             'password' => 'required',
 
         ],
@@ -62,10 +69,15 @@ class cutomercontroller extends Controller
             'fname.required' => 'Please enter your First Name',
             'lname.required' => 'Please enter your Last Name',
             'email.unique' => 'please enter valid email address',
+            'phoneno.unique' => 'please enter valid phone no',
+        
             'password.unique' => 'please enter a Password ',
         ]
 
     );
+
+
+
     
     if ($validator->fails()){
         return redirect('customer/create')
@@ -105,6 +117,11 @@ class cutomercontroller extends Controller
         return view('edit', compact('customer'));
     }
 
+
+
+
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -118,6 +135,8 @@ class cutomercontroller extends Controller
             'fname' => 'required',
             'lname' => 'required',
             'email' => 'required',
+            'phoneno' => 'required',
+
             'password' => 'required',
         ]);
 
@@ -126,6 +145,10 @@ class cutomercontroller extends Controller
         return redirect()->route('customer.index')
                             ->with('success','updated successfully');
     }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -137,19 +160,18 @@ class cutomercontroller extends Controller
     {
         
        $customer->delete();
-        return response()->json(['status' => 'success', 'message' =>'Dan hari bang']);
+        return response()->json(['status' => 'success', 'message' =>'Delete Successfull']);
         
     }
 
 
 
 
-// public function category()
-// {
-//     return view ('category');
 
-// }
 
+
+
+            //ACTION COLOMN
 
 public function indexpagetable() {
 
@@ -168,14 +190,38 @@ public function indexpagetable() {
         return $buttons;
     })
     ->make(true);
+
+
+
+
+
+
+
+            
 }
 
 
-public function abc() {
+            //EXCEL Sheet Genarator
+public function export(){
+    return Excel::download(new CustomerExport, 'customerlist.xlsx');
+}
 
-    $abc = customer::all();
-    
-    return Datatables::of($abc) ->make(true);
+
+            //PDF Genarator
+
+ function generate_pdf() {
+    $data = DB::table('customers')->get();
+    $pdf = PDF::loadView('pdfviews.generatepdf',compact('data'));
+    return $pdf->stream('document.pdf');
+}
+
+public function showimportpage(){
+    return view ('import.income');
+}
+public function import(request $request){
+    $file = $request->file('file');
+    Excel::import(new CustomerImport,$file);
+    return redirect()->route('customer.importview')->with('success','Excel file import successfully');
 }
 
 }

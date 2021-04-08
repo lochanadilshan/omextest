@@ -25,7 +25,9 @@
             <th> First Name </th>
             <th> Last Name </th>
             <th> Email </th>
-            <th> Password </th> 
+            <th> Phone No </th>
+            <th> Notifications </th>
+           
             <th> Actions</th>
             
             
@@ -50,7 +52,9 @@
                           {data: 'fname', name: 'fname'}, 
                           {data: 'lname', name: 'lname'}, 
                           {data: 'email', name: 'email'}, 
-                          {data: 'password', name: 'password'},
+                          {data: 'phoneno', name: 'phoneno'},
+                          {data: 'pNotifications', name: 'pNotifications'},
+                          
                           {data: 'action', name: 'action'}, 
                                            
                       ]
